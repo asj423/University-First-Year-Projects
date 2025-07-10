@@ -1,0 +1,19 @@
+Sudoku Solver - Review
+
+Approach Difficulty:
+ - Used recursive backtracking with Minimum Remaining Value (MRV) heuristic.
+ - MRV added complexity: required tracking possible values and their counts per cell.
+
+Algorithm Overview:
+ - Validation: Ensures no duplicate values in rows, columns, or subgrids.
+ - Constraint Satisfaction: Calculates and stores possible values for each empty cell.
+ - Backtracking: Fills cell with fewest options, recurses through possibilities, and backtracks if needed.
+
+Optimisations:
+ - Started with plain backtracking (slow).
+ - Improved by filling cells with only one valid option.
+ - Final version uses MRV to significantly reduce search space and solve time (up to 3 mins faster on hard puzzles).
+
+Reflections & Future Improvements:
+ - Solver performs well (solves in under 30 seconds).
+ - Future: split code into functions for clarity and validate board only once, not on every recursion.
