@@ -1,0 +1,37 @@
+Multi-threaded File Processor - Review
+
+Overview:
+ - The PopThread class should use the Runnable interfaceto process multiple files in parallel threads.
+ - Each instance of the PopThread class will be passed an ArrayList of Strings via the constructor which contains a subset of the files to be printed.*
+ - Multiple threads will be started using the PopThread class, which in combination will contain all N files which need to be printed (an example is shown in the precheck).
+ - The result.txt output file should contain the contents of all the files in the order specified by their labels.
+ 
+Multi-Threading in java:
+ - It allows the execution of two or more threads at the same time in a program.
+ - This helps improve performance and responsiveness
+ 
+How the program works:
+
+ - Thread Initialization and Tracking:
+    - Increments a global thread counter when each thread is created.
+    - Tracks the number of active threads and resets shared state when all threads complete.
+
+ - Output File Handling:
+    - Clears the output file once before any writing begins to avoid duplicate or residual content.
+
+ - File Processing Workflow:
+    - Iterates over a list of input files specific to each thread.
+    - Reads the full contents of each file into memory.
+    - Extracts a numeric label from each file based on a specific format.
+
+ - Synchronized Label-Based Ordering:
+    - Uses synchronization to ensure that file contents are written in the correct label-based sequence.
+    - Waits if the current file's label does not match the expected global label counter.
+    - Notifies all waiting threads once the correct label is processed and written.
+
+ - Output Writing:
+    - Appends file contents to a single shared result file in label order, with thread-safe access.
+
+ - Termination:
+    - Decrements the thread counter when processing is complete.
+	- Resets global counters and notifies any remaining waiting threads if all threads are finished.
