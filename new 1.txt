@@ -1,0 +1,2 @@
+Overview:
+This project implements a binary email spam classifier using a manually-coded logistic regression model, relying solely on NumPy for matrix operations. The classifier is trained on a labeled dataset of email messages, using gradient descent for optimization. It provides a lightweight and interpretable baseline for spam detection with fully transparent computations and no external ML libraries.
